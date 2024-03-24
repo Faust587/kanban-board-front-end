@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "lib": ["ESNext", "dom"],
+        "types": ["cypress", "cypress-react-selector", "date-fns", "node"],
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-jsx",
+        "baseUrl": "shared"
+    },
+    "include": ["**/*.ts", "**/*.tsx", "support/index.ts"]
+}
