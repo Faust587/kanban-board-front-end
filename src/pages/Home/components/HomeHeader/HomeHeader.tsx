@@ -1,10 +1,9 @@
 import { Box, Button, TextField } from "@mui/material";
 import { FormEvent, memo, useCallback, useState } from "react";
-import { useAppDispatch } from "../../../../shared/hooks";
-import { GetDashboardById } from "../../../../store/dashboardSlice/thunks.ts";
-import { FormStyled } from "./HomeHeader.styled.ts";
-import { HOME_BOARD_CUSTOM_EVENTS } from "../HomeBoard/HomeBoard.constants.ts";
-import { CreateEditModalType } from "../HomeBoard/hooks/useModals.ts";
+import { FormStyled } from "./HomeHeader.styled";
+import { HOME_BOARD_CUSTOM_EVENTS } from "../HomeBoard/HomeBoard.constants";
+import { CreateEditModalType } from "../HomeBoard/hooks/useModals";
+import { useNavigate } from "react-router-dom";
 
 const HomeHeaderComponent = () => {
   /**
@@ -15,7 +14,7 @@ const HomeHeaderComponent = () => {
   /**
    * Hooks
    */
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   /**
    * Handlers
@@ -23,9 +22,9 @@ const HomeHeaderComponent = () => {
   const handleRequestDashboard = useCallback(
     (event: FormEvent<unknown>) => {
       event.preventDefault();
-      dispatch(GetDashboardById(boardId));
+      navigate(`/${boardId}`);
     },
-    [dispatch, boardId],
+    [navigate, boardId],
   );
 
   const handleOpenCreateDashboardForm = useCallback(() => {
@@ -53,6 +52,7 @@ const HomeHeaderComponent = () => {
           alignItems="center"
         >
           <TextField
+            data-testid="dashboard-input-id"
             value={boardId}
             onChange={(e) => setBoardId(e.target.value)}
             placeholder="Enter a board ID here..."
