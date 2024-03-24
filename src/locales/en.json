@@ -1,0 +1,47 @@
+{
+  "label": {
+    "name": "Name",
+    "description": "Description",
+    "welcome": "Welcome",
+    "not-found": "Not Found",
+    "no-data": "No Data",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "load": "Load",
+    "create": "Create",
+    "dashboard-name": "Dashboard: {{name}}",
+    "dashboard-id": "ID: {{id}}"
+  },
+  "column": {
+    "create-task": "Create Task"
+  },
+  "modal": {
+    "task": {
+      "create": {
+        "title": "Create New Task"
+      },
+      "edit": {
+        "title": "Edit Task"
+      }
+    },
+    "dashboard": {
+      "create": {
+        "title": "Create New Dashboard"
+      },
+      "edit": {
+        "title": "Edit Dashboard"
+      }
+    }
+  },
+  "warnings": {
+    "modal-windows": {
+      "delete-task": "Are you sure you want to delete this task?"
+    }
+  },
+  "inputs": {
+    "search-dashboard-by-id": "Enter a board ID here..."
+  },
+  "errors": {
+
+  }
+}
