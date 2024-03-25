@@ -8,6 +8,7 @@ import { useDroppable } from "@dnd-kit/core";
 import { HOME_BOARD_CUSTOM_EVENTS } from "../../HomeBoard.constants";
 import { CreateEditModalType, ModalTypes } from "../../hooks/useModals";
 import { colors } from "../../../../../../styles/colors";
+import { sortTaskByOrder } from "../../../../../../utils/index.ts";
 
 type ColumnProps = {
   data: ColumnEntity;
@@ -25,7 +26,7 @@ export const Column: FC<ColumnProps> = ({ data }) => {
   /**
    * Values
    */
-  const sortedItems = [...data.tasks].sort((a, b) => a.index - b.index);
+  const sortedItems = sortTaskByOrder(data.tasks);
 
   /**
    * Handlers

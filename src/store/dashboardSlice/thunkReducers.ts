@@ -3,6 +3,7 @@ import { InitialStateType } from "./contants.ts";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { DashboardEntity, TaskEntity } from "../../types/entities";
 import { ChangeOrderResType } from "../../api/taskApi.ts";
+import { sortTaskByOrder } from "../../utils/index.ts";
 
 export const GetDashboardByIdReducer = {
   pending: (state: InitialStateType): InitialStateType => {
@@ -107,7 +108,6 @@ export const CreateColumnTaskReducer = {
     state: InitialStateType,
     action: PayloadAction<unknown>,
   ): InitialStateType => {
-    console.log(action.payload);
     return {
       ...state,
       loadingUpdates: LoadingStatusEnum.FAILED,
@@ -131,11 +131,14 @@ export const UpdateColumnTaskReducer = {
         ({ id }) => id !== action.payload.id,
       );
       if (action.payload.column === column.id) {
-        return { ...column, tasks: [...filteredTasks, action.payload] };
+        return {
+          ...column,
+          tasks: sortTaskByOrder([...filteredTasks, action.payload]),
+        };
       }
       return {
         ...column,
-        tasks: [...filteredTasks.sort((a, b) => a.index - b.index)],
+        tasks: sortTaskByOrder(filteredTasks),
       };
     });
 
@@ -220,7 +223,7 @@ export const ChangeColumnTaskOrderReducer = {
         tasks.push(affectedTask);
       }
 
-      return { ...column, tasks: tasks.sort((a, b) => a.index - b.index) };
+      return { ...column, tasks: sortTaskByOrder(tasks) };
     });
 
     return {
@@ -261,7 +264,7 @@ export const ChangeTaskColumnReducer = {
       }
       return {
         ...column,
-        tasks: [...filteredTasks.sort((a, b) => a.index - b.index)],
+        tasks: sortTaskByOrder(filteredTasks),
       };
     });
 
