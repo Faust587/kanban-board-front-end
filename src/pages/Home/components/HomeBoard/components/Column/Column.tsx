@@ -64,6 +64,7 @@ export const Column: FC<ColumnProps> = ({ data }) => {
 
       <Box pt={4}>
         <Button
+          data-testid="create-task-btn"
           fullWidth
           variant="outlined"
           size="small"

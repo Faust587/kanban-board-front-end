@@ -61,12 +61,18 @@ const HomeHeaderComponent = () => {
             size="small"
           />
           <Box ml={2}>
-            <Button variant="outlined" size="small" type="submit">
+            <Button
+              data-testid="load-dashboard-btn"
+              variant="outlined"
+              size="small"
+              type="submit"
+            >
               Load
             </Button>
           </Box>
           <Box ml={2}>
             <Button
+              data-testid="create-dashboard-btn"
               variant="outlined"
               size="small"
               type="button"

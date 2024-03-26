@@ -19,6 +19,7 @@ export const CreateEditDashboardModalForm: FC<CreateEditDashboardModalForm> = (
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <FormTextField
+            data-testid="create-edit-dashboard-name-input"
             autoFocus
             required
             fullWidth
@@ -29,7 +30,11 @@ export const CreateEditDashboardModalForm: FC<CreateEditDashboardModalForm> = (
 
         <Grid item xs={12}>
           <Box width="100%" display="flex" justifyContent="flex-end">
-            <Button variant="contained" onClick={handleOnSubmit}>
+            <Button
+              data-testid="create-edit-dashboard-submit-btn"
+              variant="contained"
+              onClick={handleOnSubmit}
+            >
               Submit
             </Button>
           </Box>

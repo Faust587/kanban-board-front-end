@@ -72,11 +72,15 @@ export const HomeBoardContainer = () => {
           <Box pt={2}>
             <Box display="flex">
               <Chip
+                data-testid="dashboard-name-chip"
                 color="primary"
                 label={`Dashboard: ${dashboardData.name}`}
               />
               <Box pl={1}>
-                <Chip label={`ID: ${dashboardData.id}`} />
+                <Chip
+                  data-testid="dashboard-id-chip"
+                  label={`ID: ${dashboardData.id}`}
+                />
               </Box>
             </Box>
             <HomeBoardComponent dashboard={dashboardData} />
